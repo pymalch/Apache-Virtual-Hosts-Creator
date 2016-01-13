@@ -32,8 +32,7 @@ def new_hosts(domain,public_dir,www,user):
 	newline()
 
 	msg(" Granting Proper Permissions ")
-	msg("sudo chown -R "+user+" "+www+domain)
-	os.system("sudo chown -R "+user+" "+www+domain)
+	os.system("sudo chown -R "+user+":"+user+" "+www+domain)
 
 	newline()
 
@@ -58,7 +57,6 @@ def new_hosts(domain,public_dir,www,user):
 	newline()
 
 	msg(" Activating New Virtual Host ")
-	os.system("sudo a2dissite 000-default.conf")
 	os.system("sudo a2ensite "+domain+".conf")
 
 	newline()
